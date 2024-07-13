@@ -1,1 +1,56 @@
-<p>uncommon-page works!</p>
+<p-panel header="Pipes no tan basicos" class="p-1">
+  <p>Pipes incluidos en Abgular por lo general en Common Modules</p>
+</p-panel>
+
+<div class="grid">
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true" >
+      <p>
+        Saludos {{ name }}, es un placer {{ gender | i18nSelect:invitationMap }} al evento
+      </p>
+      <p-button (onClick)="changeClient()" label="Cambiar persona"></p-button>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true" >
+      <p>
+        Actualmente {{ clients.length | i18nPlural:clientsMap }}
+      </p>
+      <p-button label="Borrar cliente" (onClick)="deleteClient()" ></p-button>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Slice Pipe" [toggleable]="true" >
+      <b>Original</b>
+
+      <pre> {{ clients }} </pre>
+
+      <b>sliced</b>
+      <pre>{{ clients | slice:1:3 }}</pre>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="JSON Pipe" [toggleable]="true" >
+      {{ person | json }}
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="KeyValue Pipe" [toggleable]="true" >
+      <ul>
+        <li *ngFor="let personItem of person|keyvalue">
+          <b>{{ personItem.key | titlecase }}: {{ personItem.value }}</b>
+        </li>
+      </ul>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Async Pipe" [toggleable]="true" >
+
+    </p-fieldset>
+  </div>
+</div>

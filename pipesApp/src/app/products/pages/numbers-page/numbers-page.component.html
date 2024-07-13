@@ -1,1 +1,23 @@
-<p>numbers-page works!</p>
+<p-panel header="Pipes basicos numericos" class="p-1">
+  <p>Pipes incluidos en Abgular por lo general en Common Modules</p>
+</p-panel>
+
+<div class="grid">
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas Netas" subheader="Del presente ano" >
+      {{ (totalSells + 1235) | number: '1.2-2' }}
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-4">
+    <p-card header="Ventas Brutas" subheader="Del presente ano" >
+      {{ totalSells | currency:'VES':'symbol-narrow':'1.4-4' }}
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-4">
+    <p-card header="Ganancia porcentual" subheader="Del presente ano" >
+      {{ percent | percent:'1.2-2' }}
+    </p-card>
+  </div>
+</div>
